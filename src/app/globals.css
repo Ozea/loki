@@ -66,3 +66,7 @@ kbd {
   padding-bottom: 5px;
   /* Add padding to accommodate descenders */
 }
+
+.gradient-background {
+  background: linear-gradient(90deg, #ABA7F9 0%, #75C1E6 51%, #6CE4C0 100%);
+}
