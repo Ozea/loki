@@ -1,14 +1,15 @@
 import { GradientButton } from '@/components/Button/Gradient'
 import Header from '@/components/Header'
+import WorkExperience from '@/containers/WorkExperience'
 import Image from 'next/image'
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white flex flex-col text-black">
+    <div className="bg-white flex flex-col text-black">
       <Header />
 
-      <main className="flex-grow flex items-center">
-        <section className="container mx-auto px-4 w-full">
+      <main>
+        <section className="min-h-screen flex items-center container mx-auto px-4 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div className="order-2 lg:order-1">
               {/* <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
@@ -39,6 +40,8 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <WorkExperience />
       </main>
     </div>
   )
