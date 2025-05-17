@@ -73,7 +73,7 @@ export function DesignApproach() {
             <div>
               <h2 className="text-xl font-bold mb-3">Graphic Design</h2>
               <p className="text-gray-600">
-                I create visually compelling designs that capture attention and communicate your brand's message effectively. From logos to marketing
+                I create visually compelling designs that capture attention and communicate your brand&apos;s message effectively. From logos to marketing
                 materials, my designs ensure consistency and professionalism across all platforms.
               </p>
             </div>

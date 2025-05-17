@@ -10,14 +10,14 @@ const WorkTogether = () => {
         <div className="w-full md:max-w-[65%]">
           <span className="gradient-background text-center block h-[5px] w-[70px] bg-black" />
           <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4 mt-6">
-            Let's work together {''}
+            Let&apos;s work together {''}
             <span className="font-normal">
               with <span className="text-gradient font-bold">me</span>
             </span>
           </h1>
           <p className="text-lg text-gray-600">
             Let me craft your unique brand identity with expert logo design, impactful branding strategies, and distinctive designs that set you
-            apart. Whether starting fresh or refining, we'll ensure your business leaves a lasting impression.
+            apart. Whether starting fresh or refining, we&apos;ll ensure your business leaves a lasting impression.
           </p>
         </div>
 
