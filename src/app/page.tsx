@@ -1,5 +1,6 @@
 import { GradientButton } from '@/components/Button/Gradient'
 import Header from '@/components/Header'
+import { DesignApproach } from '@/containers/DesignApproach'
 import WorkExperience from '@/containers/WorkExperience'
 import WorkTogether from '@/containers/WorkTogether'
 import Image from 'next/image'
@@ -13,14 +14,6 @@ export default function Home() {
         <section className="min-h-screen flex items-center container mx-auto px-4 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div className="order-2 lg:order-1">
-              {/* <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-                Making Your Brand <span className="text-blue-300">Shine</span>
-                <br />
-                <span className="font-normal">
-                  with Great <span className="text-blue-300">Design</span>
-                </span>
-              </h1> */}
-
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
                 Making Your Brand <span className="text-transparent bg-clip-text text-gradient">Shine</span>
                 <br />
@@ -45,6 +38,8 @@ export default function Home() {
         <WorkExperience />
 
         <WorkTogether />
+
+        <DesignApproach />
       </main>
     </div>
   )
