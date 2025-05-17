@@ -53,7 +53,7 @@ export default function Home() {
               </h2>
 
               <p className="text-lg text-gray-600 mb-8">
-                Based in Dublin, Ireland, I help businesses create impactful brands and social media strategies. Let's bring your vision to life with
+                Based in Dublin, Ireland, I help businesses create impactful brands and social media strategies. Let&apos;s bring your vision to life with
                 designs and content that make a lasting impression!
               </p>
             </div>
