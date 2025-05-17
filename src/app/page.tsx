@@ -1,6 +1,7 @@
 import { GradientButton } from '@/components/Button/Gradient'
 import Header from '@/components/Header'
 import WorkExperience from '@/containers/WorkExperience'
+import WorkTogether from '@/containers/WorkTogether'
 import Image from 'next/image'
 
 export default function Home() {
@@ -42,6 +43,8 @@ export default function Home() {
         </section>
 
         <WorkExperience />
+
+        <WorkTogether />
       </main>
     </div>
   )
