@@ -1,6 +1,7 @@
 import { GradientButton } from '@/components/Button/Gradient'
 import Header from '@/components/Header'
 import { DesignApproach } from '@/containers/DesignApproach'
+import Footer from '@/containers/Footer'
 import WorkExperience from '@/containers/WorkExperience'
 import WorkTogether from '@/containers/WorkTogether'
 import Image from 'next/image'
@@ -62,6 +63,8 @@ export default function Home() {
             </div>
           </div>
         </div>
+
+        <Footer />
       </main>
     </div>
   )
