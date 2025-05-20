@@ -102,8 +102,8 @@ export default function Portfolio() {
                 <h2 className="text-xl font-bold mb-3">Branding</h2>
                 <p className="text-gray-600">
                   I developed a cohesive visual identity that reflects the core values of Workers Inc. This involved selecting a color palette,
-                  typography, and visual elements that convey professionalism, trust, and approachability, aligning the website's look and feel with
-                  the company's mission.
+                  typography, and visual elements that convey professionalism, trust, and approachability, aligning the website&apos;s look and feel
+                  with the company&apos;s mission.
                 </p>
               </div>
             </div>
