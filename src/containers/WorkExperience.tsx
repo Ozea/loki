@@ -131,7 +131,7 @@ const TimelineExperience = () => {
         <div className="relative mt-5">
           {/* Animated dashed timeline line */}
           <motion.div
-            className="hidden md:block absolute left-1/2 h-[calc(100%-30%)] w-0.5 transform -translate-x-1/2 bg-gradient-to-b from-purple-500 to-pink-500"
+            className="block h-[calc(100%-32%)] left-[8%] absolute md:left-1/2 md:h-[calc(100%-30%)] w-0.5 transform -translate-x-1/2 bg-gradient-to-b from-purple-500 to-pink-500"
             style={{
               backgroundImage: 'linear-gradient(to bottom, #9CA3AF 50%, transparent 50%)',
               backgroundSize: '1px 8px',
@@ -151,7 +151,7 @@ const TimelineExperience = () => {
             viewport={{ once: true }}
           >
             {timelineItems.map((item, index) => (
-              <motion.div key={index} className="flex flex-col md:flex-row w-full items-start relative" variants={itemVariants}>
+              <motion.div key={index} className="flex flex-row-reverse md:flex-col md:flex-row w-full items-start relative" variants={itemVariants}>
                 <motion.div className="w-full md:w-1/2 md:pr-8" transition={{ duration: 0.2 }}>
                   <h2 className="text-xl font-semibold text-gray-900">{item.organization}</h2>
                   <p className="text-gray-400">{item.period}</p>
@@ -162,7 +162,7 @@ const TimelineExperience = () => {
                 </motion.div>
 
                 {/* Animated dot */}
-                <div className="hidden md:flex w-16 justify-center">
+                <div className="flex w-16 justify-center">
                   <motion.div className="relative z-10 w-8 h-8" custom={index} variants={dotVariants}>
                     {index % 2 === 0 ? (
                       <Image src="/gradient-dot.svg" alt="Timeline dot" width={30} height={30} className="w-full h-full" />
