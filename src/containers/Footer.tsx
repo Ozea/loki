@@ -21,7 +21,9 @@ export default function Footer() {
           </div>
 
           <div className="w-full md:w-auto">
-            <GradientButton href="/get-started">Get Started</GradientButton>
+            <GradientButton linkProps={{ href: 'https://www.linkedin.com/in/dashmills0609/', target: '_blank', rel: 'noopener noreferrer' }}>
+              Get Started
+            </GradientButton>
           </div>
         </div>
       </div>

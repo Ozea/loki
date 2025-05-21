@@ -78,7 +78,9 @@ const WorkTogether = () => {
           }}
           transition={{ duration: 0.6, delay: 0.8 }}
         >
-          <GradientButton href="/get-started">Get Started</GradientButton>
+          <GradientButton linkProps={{ href: 'https://www.linkedin.com/in/dashmills0609/', target: '_blank', rel: 'noopener noreferrer' }}>
+            Get Started
+          </GradientButton>
         </motion.div>
       </motion.div>
 

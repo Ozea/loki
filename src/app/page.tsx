@@ -8,7 +8,6 @@ import WorkExperience from '@/containers/WorkExperience'
 import WorkTogether from '@/containers/WorkTogether'
 
 export default function Home() {
-
   return (
     <div className="bg-white flex flex-col text-black">
       <main>
@@ -60,7 +59,9 @@ export default function Home() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <GradientButton href="/get-started">Get Started</GradientButton>
+                <GradientButton linkProps={{ href: 'https://www.linkedin.com/in/dashmills0609/', target: '_blank', rel: 'noopener noreferrer' }}>
+                  Get Started
+                </GradientButton>
               </motion.div>
             </div>
 
