@@ -36,7 +36,9 @@ export default function Header() {
 
         {/* Desktop CTA Button */}
         <div className="hidden md:block">
-          <GradientButton href="/get-started">Get Started</GradientButton>
+          <GradientButton linkProps={{ href: 'https://www.linkedin.com/in/dashmills0609/', target: '_blank', rel: 'noopener noreferrer' }}>
+            Get Started
+          </GradientButton>
         </div>
 
         {/* Mobile menu button */}
@@ -69,7 +71,9 @@ export default function Header() {
               Contact Us
             </Link>
             <div className="pt-2">
-              <GradientButton href="/get-started">Get Started</GradientButton>
+              <GradientButton linkProps={{ href: 'https://www.linkedin.com/in/dashmills0609/', target: '_blank', rel: 'noopener noreferrer' }}>
+                Get Started
+              </GradientButton>
             </div>
           </div>
         </div>
