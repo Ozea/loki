@@ -68,7 +68,7 @@ const TimelineExperience = () => {
 
   const dotVariants = {
     hidden: { scale: 0, opacity: 0 },
-    visible: (index: any) => ({
+    visible: (index: number) => ({
       scale: 1,
       opacity: 1,
       transition: {

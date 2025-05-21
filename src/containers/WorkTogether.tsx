@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React from 'react'
 import Link from 'next/link'
 import { GradientButton } from '@/components/Button/Gradient'
 import Image from 'next/image'
-import { motion, useInView, useScroll, useTransform } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 const WorkTogether = () => {
   return (
