@@ -2,35 +2,17 @@
 
 import Image from 'next/image'
 import { GradientButton } from '@/components/Button/Gradient'
-import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import dynamic from 'next/dynamic'
 import { DesignApproach } from '@/containers/DesignApproach'
 import WorkExperience from '@/containers/WorkExperience'
 import WorkTogether from '@/containers/WorkTogether'
 
-// Dynamically import the particles component to avoid SSR issues
-const ParticlesBackground = dynamic(() => import('@/components/ParticlesBackground'), {
-  ssr: false,
-  loading: () => <div className="absolute inset-0" />,
-})
-
 export default function Home() {
-  const [isLoaded, setIsLoaded] = useState(false)
-
-  useEffect(() => {
-    setIsLoaded(true)
-  }, [])
 
   return (
     <div className="bg-white flex flex-col text-black">
       <main>
         <section className="min-h-screen relative flex items-center container mx-auto px-4 w-full overflow-hidden">
-          {/* Particles Background */}
-          <div className="absolute inset-0 z-0">
-            <ParticlesBackground />
-          </div>
-
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center w-full z-10 relative">
             <div className="order-2 lg:order-1">
               <motion.h1

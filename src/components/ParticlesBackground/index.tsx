@@ -132,7 +132,7 @@ export default function ParticlesBackground() {
         },
         particles: {
           color: {
-            value: ['#7e22ce', '#ec4899', '#f472b6', '#8b5cf6', '#a855f7'],
+            value: ['#ABA7F9', '#4ca48a', '#4494B9', '#171748'],
           },
           links: {
             enable: false,
@@ -157,7 +157,7 @@ export default function ParticlesBackground() {
           opacity: {
             value: {
               min: 0.1,
-              max: 0.7,
+              max: 0.4,
             },
             animation: {
               enable: true,
