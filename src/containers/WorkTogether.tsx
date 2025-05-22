@@ -213,7 +213,7 @@ const WorkTogether = () => {
                     }}
                     transition={{ duration: 0.6, delay: 0.7 }}
                   >
-                    Website Design
+                    Branding
                   </motion.h2>
                   <motion.p
                     className="text-white text-md mb-8 leading-relaxed"
@@ -226,7 +226,7 @@ const WorkTogether = () => {
                     }}
                     transition={{ duration: 0.6, delay: 0.8 }}
                   >
-                    Crafting visually engaging user experiences that make websites seamless and user-friendly.
+                    Developing unique brand identities through logos, brand guidelines, and cohesive visuals that leave a lasting impression.
                   </motion.p>
 
                   <motion.div
@@ -299,7 +299,7 @@ const WorkTogether = () => {
                     }}
                     transition={{ duration: 0.6, delay: 0.9 }}
                   >
-                    Website Design
+                    Marketing
                   </motion.h2>
                   <motion.p
                     className="text-white text-md mb-8 leading-relaxed"
@@ -312,7 +312,7 @@ const WorkTogether = () => {
                     }}
                     transition={{ duration: 0.6, delay: 1.0 }}
                   >
-                    Crafting visually engaging user experiences that make websites seamless and user-friendly.
+                    I create social media content and strategies that drive growth and help brands connect with their audience.
                   </motion.p>
 
                   <motion.div
@@ -382,7 +382,7 @@ const WorkTogether = () => {
                     }}
                     transition={{ duration: 0.6, delay: 1.1 }}
                   >
-                    Website Design
+                    Graphic Design
                   </motion.h2>
                   <motion.p
                     className="text-white text-md mb-8 leading-relaxed"
@@ -395,7 +395,7 @@ const WorkTogether = () => {
                     }}
                     transition={{ duration: 0.6, delay: 1.2 }}
                   >
-                    Crafting visually engaging user experiences that make websites seamless and user-friendly.
+                    Designing stunning brochures, pitch decks, business cards, presentations, and social media posts for your brand.
                   </motion.p>
 
                   <motion.div
