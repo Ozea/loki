@@ -23,14 +23,11 @@ export default function Header() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-8">
-          <Link href="/about" className="text-black hover:text-blue-500 transition">
-            About
+          <Link href="/ui-ux" className="text-black hover:text-blue-500 transition">
+            UI/UX
           </Link>
-          <Link href="/portfolio" className="text-black hover:text-blue-500 transition">
-            Portfolio
-          </Link>
-          <Link href="/contact" className="text-black hover:text-blue-500 transition">
-            Contact Us
+          <Link href="/visual-design" className="text-black hover:text-blue-500 transition">
+            Visual Design
           </Link>
         </nav>
 
@@ -61,14 +58,11 @@ export default function Header() {
       {mobileMenuOpen && (
         <div className="md:hidden bg-white shadow-lg">
           <div className="px-4 pt-2 pb-4 space-y-4">
-            <Link href="/about" className="block text-black hover:text-blue-500 transition py-2">
-              About
+            <Link href="/ui-ux" className="block text-black hover:text-blue-500 transition py-2">
+              UI/UX
             </Link>
-            <Link href="/portfolio" className="block text-black hover:text-blue-500 transition py-2">
-              Portfolio
-            </Link>
-            <Link href="/contact" className="block text-black hover:text-blue-500 transition py-2">
-              Contact Us
+            <Link href="/visual-design" className="block text-black hover:text-blue-500 transition py-2">
+              Visual Design
             </Link>
             <div className="pt-2">
               <GradientButton linkProps={{ href: 'https://www.linkedin.com/in/dashmills0609/', target: '_blank', rel: 'noopener noreferrer' }}>

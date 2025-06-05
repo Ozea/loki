@@ -157,7 +157,7 @@ const WorkTogether = () => {
                     }}
                     transition={{ duration: 0.6, delay: 0.7 }}
                   >
-                    <Link href="/portfolio" className="hover:text-blue-300">
+                    <Link href="/ui-ux" className="hover:text-blue-300">
                       <u>View Portfolio</u>
                     </Link>
                     <Image src="/arrow-up-no-border.svg" alt="Arrow Up No Border" width={15} height={15} className="w-3 h-3 text-white" />
@@ -240,7 +240,7 @@ const WorkTogether = () => {
                     }}
                     transition={{ duration: 0.6, delay: 0.9 }}
                   >
-                    <Link href="/portfolio" className="hover:text-blue-300">
+                    <Link href="/ui-ux" className="hover:text-blue-300">
                       <u>View Portfolio</u>
                     </Link>
                     <Image src="/arrow-up-no-border.svg" alt="Arrow Up No Border" width={15} height={15} className="w-3 h-3 text-white" />
@@ -326,7 +326,7 @@ const WorkTogether = () => {
                     }}
                     transition={{ duration: 0.6, delay: 1.1 }}
                   >
-                    <Link href="/portfolio" className="hover:text-blue-300">
+                    <Link href="/ui-ux" className="hover:text-blue-300">
                       <u>View Portfolio</u>
                     </Link>
                     <Image src="/arrow-up-no-border.svg" alt="Arrow Up No Border" width={15} height={15} className="w-3 h-3 text-white" />
@@ -409,7 +409,7 @@ const WorkTogether = () => {
                     }}
                     transition={{ duration: 0.6, delay: 1.3 }}
                   >
-                    <Link href="/portfolio" className="hover:text-blue-300">
+                    <Link href="/ui-ux" className="hover:text-blue-300">
                       <u>View Portfolio</u>
                     </Link>
                     <Image src="/arrow-up-no-border.svg" alt="Arrow Up No Border" width={15} height={15} className="w-3 h-3 text-white" />
