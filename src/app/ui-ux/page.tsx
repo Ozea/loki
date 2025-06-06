@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import SimpleTemplates from '@/containers/SimpleTemplates'
-import VideoComponent from '@/components/VideoComponent'
 import { LazyPortfolioVideo } from '@/components/OptimisedVideo'
 
 const headerVariants = {

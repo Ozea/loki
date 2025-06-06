@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export function useIntersectionObserver(elementRef: any, options = { threshold: 0.1, rootMargin: '0px' }) {
   const [isIntersecting, setIsIntersecting] = useState(false)
 
