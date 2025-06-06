@@ -1,3 +1,4 @@
+import { LazyPortfolioVideo } from '@/components/OptimisedVideo'
 import React, { useEffect, useRef } from 'react'
 
 export default function SimpleTemplates() {
@@ -16,25 +17,25 @@ export default function SimpleTemplates() {
       title: 'Smarter Travel Award',
       description:
         'Designed a user-friendly mobile app to support the Smarter Travel programme, aimed at promoting sustainable travel for students. The app helps students plan their commute by showing live weather updates, road news, and different travel options such as cycling, driving, public transport, and carpooling with fellow students. The car-sharing feature allows drivers to earn money and helps passengers save time, encouraging smarter and more eco-friendly commuting choices.',
-      src: '/portfolio/smart-travel-award.mp4',
+      src: 'smart-travel-award',
     },
     {
       title: 'AI & The environment',
       description:
         'Designed a web page exploring how artificial intelligence, while aimed at helping the planet, could also harm it - such as through energy use and resource demands. The project was inspired by the ideas of James Bridle.  The layout was designed for easy reading and visual impact, encouraging critical thinking through design and content.',
-      src: '/portfolio/ai-and-environment.mp4',
+      src: 'ai-and-environment',
     },
     {
       title: 'BookShelf',
       description:
         'Designed a warm and inviting library app showcasing popular books, complete with descriptions and user ratings. The design focused on creating a cozy, book-like feel using soft colors, clean layouts, and consistent visual elements. The user experience was built to be intuitive and relaxing, encouraging users to explore and discover new reads.',
-      src: '/portfolio/book-shelf.mp4',
+      src: 'book-shelf',
     },
     {
       title: 'Energy choices',
       description:
         'Designed an educational web page to explain the impact of non-renewable vs. renewable energy. Focused on clear structure, engaging visuals, and easy navigation. Included sections on energy sources, practical tips, and ways to get involved in sustainability efforts in Ireland. The design aimed to be informative, user-friendly, and visually consistent.',
-      src: '/portfolio/ai-choices.mp4',
+      src: 'ai-choices',
     },
   ]
 
@@ -53,10 +54,7 @@ export default function SimpleTemplates() {
               {/* Phone Mockups */}
               <div className="flex-1 relative">
                 <div className="relative p-2">
-                  <video ref={videoRef} className="w-full h-auto rounded-xl" loop muted playsInline autoPlay>
-                    <source src={project.src} type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
+                  <LazyPortfolioVideo videoName={project.src} className="w-full" videoClassName="rounded-lg" quality="1080p" autoPlay muted loop />
                 </div>
               </div>
             </div>
