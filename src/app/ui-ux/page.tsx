@@ -1,9 +1,9 @@
 'use client'
 
-import { useRef, useEffect } from 'react'
-import Image from 'next/image'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import SimpleTemplates from '@/containers/SimpleTemplates'
+import { LazyPortfolioVideo } from '@/components/OptimisedVideo'
 
 const headerVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -74,16 +74,6 @@ const textVariants = {
 }
 
 export default function Portfolio() {
-  const videoRef = useRef<HTMLVideoElement | null>(null)
-
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.play().catch((error) => {
-        console.error('Video autoplay failed:', error)
-      })
-    }
-  }, [])
-
   return (
     <main className="bg-white text-black pt-40">
       <section className="container mx-auto px-4 w-full mb-25">
@@ -144,14 +134,12 @@ export default function Portfolio() {
         />
 
         <div className="max-w-7xl mx-auto px-4">
-          <div className="relative p-2 rounded-2xl shadow-2xl">
-            <video ref={videoRef} className="w-full h-auto rounded-xl" loop muted playsInline autoPlay>
-              <source src="/portfolio/workers-inc.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+          <div className="relative shadow-xl">
+            <LazyPortfolioVideo videoName="workers-inc" className="w-full" videoClassName="rounded-lg" quality="1080p" autoPlay muted loop />
           </div>
         </div>
 
+        {/* Service cards section remains the same... */}
         <div className="max-w-6xl mx-auto px-4 py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-[#FAFAFA] rounded-xl p-8 shadow-sm">
@@ -230,31 +218,25 @@ export default function Portfolio() {
                   <div className="bg-[#ABA7F9] p-2 rounded-lg mr-4 w-fit">
                     <Image src="/portfolio/dp-logo-design-icon.svg" alt="DP Logo Design" width={30} height={30} className="text-white" />
                   </div>
-
                   <span className="text-lg font-bold">Logo Design</span>
                 </li>
                 <li className="flex items-center gap-2 mb-4">
                   <div className="bg-[#4494B9] p-2 rounded-lg mr-4 w-fit">
                     <Image src="/portfolio/dp-ui-ux-icon.svg" alt="DP UI/UX Design" width={30} height={30} className="text-white" />
                   </div>
-
                   <span className="text-lg font-bold">UI/UX Design</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <div className="bg-[#6CE4C0] p-2 rounded-lg mr-4 w-fit">
                     <Image src="/portfolio/dp-branding-icon.svg" alt="Website Design" width={30} height={30} className="text-white" />
                   </div>
-
                   <span className="text-lg font-bold">Branding</span>
                 </li>
               </ul>
             </div>
             <div className="order-2 col-span-2 flex justify-center lg:justify-end w-full">
               <div className="relative w-full">
-                <video ref={videoRef} className="w-full h-auto" loop muted playsInline autoPlay>
-                  <source src="/portfolio/doggy-paradise.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
+                <LazyPortfolioVideo videoName="doggy-paradise" className="w-full" videoClassName="rounded-lg" quality="1080p" autoPlay muted loop />
               </div>
             </div>
           </div>
@@ -271,14 +253,12 @@ export default function Portfolio() {
             SR Paint ensures every project is completed with precision and care.
           </p>
 
-          <div className="relative p-2 rounded-2xl shadow-2xl">
-            <video ref={videoRef} className="w-full h-auto rounded-xl" loop muted playsInline autoPlay>
-              <source src="/portfolio/sr-paint.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+          <div className="relative shadow-2xl">
+            <LazyPortfolioVideo videoName="sr-paint" className="w-full" videoClassName="rounded-lg" quality="1080p" autoPlay muted loop />
           </div>
         </div>
 
+        {/* Service cards section with animations... */}
         <div className="max-w-6xl mx-auto px-4 py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-[#FAFAFA] rounded-xl p-8 shadow-sm">
