@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "generate-manifest": "node scripts/generate-video-manifest.js"
   },
   "dependencies": {
     "@tsparticles/react": "^3.0.0",
@@ -15,6 +16,7 @@
     "next": "15.3.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-intersection-observer": "^9.16.0",
     "tsparticles": "^3.8.1"
   },
   "devDependencies": {
