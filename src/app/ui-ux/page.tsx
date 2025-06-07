@@ -4,6 +4,8 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import SimpleTemplates from '@/containers/SimpleTemplates'
 import { LazyPortfolioVideo } from '@/components/OptimisedVideo'
+import Link from 'next/link'
+import { CenteredFullWidthImage } from '@/components/Image/CenteredFullWidthImage'
 
 const headerVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -125,17 +127,22 @@ export default function Portfolio() {
           </motion.h2>
         </motion.div>
 
-        <CenteredFullWidthImage
-          maxWidth={250}
-          imageUrl="/workers-inc.png"
-          altText="Workers INC"
-          imageClasses="h-[20%]"
-          containerClasses="mt-6 mb-10"
-        />
+        <Link href="https://workersinc.com/" target="_blank" rel="noopener noreferrer">
+          <CenteredFullWidthImage imageUrl="/workers-inc.png" maxWidth="max-w-[12rem] lg:max-w-sm" />
+        </Link>
 
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="max-w-7xl mx-auto px-4 mt-10">
           <div className="relative shadow-xl">
-            <LazyPortfolioVideo videoName="workers-inc" className="w-full" videoClassName="rounded-lg" quality="1080p" autoPlay muted loop />
+            <LazyPortfolioVideo
+              videoName="workers-inc"
+              className="w-full"
+              videoClassName="rounded-lg"
+              quality="1080p"
+              autoPlay
+              muted
+              loop
+              controls={false}
+            />
           </div>
         </div>
 
@@ -199,8 +206,9 @@ export default function Portfolio() {
         <div className="container mx-auto px-4 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 w-full items-center">
             <div className="order-1 w-full">
-              <Image src="/portfolio/doggy-paradise.svg" alt="Logo" width={75} height={75} />
-
+              <Link href="https://b00140468.github.io/Doggy-Paradise/index.html" target="_blank" rel="noopener noreferrer">
+                <Image src="/portfolio/doggy-paradise.svg" alt="Logo" width={75} height={75} />
+              </Link>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 mt-8">
                 Doggy <span className="text-gradient">Paradise</span>
               </h2>
@@ -208,35 +216,42 @@ export default function Portfolio() {
                 Furry Friends Training, Hotel, and Care in Dublin was created with a simple mission: to provide pets with the best possible care and
                 attention, and to help them thrive in every way possible.
               </p>
-
               <p className="text-2xl mb-6">
                 <span className="font-bolder">Design and</span> development <span className="text-gradient">approach</span>
               </p>
-
               <ul>
                 <li className="flex items-center gap-2 mb-4">
                   <div className="bg-[#ABA7F9] p-2 rounded-lg mr-4 w-fit">
                     <Image src="/portfolio/dp-logo-design-icon.svg" alt="DP Logo Design" width={30} height={30} className="text-white" />
                   </div>
-                  <span className="text-lg font-bold">Logo Design</span>
+                  <span className="text-lg">Logo Design</span>
                 </li>
                 <li className="flex items-center gap-2 mb-4">
                   <div className="bg-[#4494B9] p-2 rounded-lg mr-4 w-fit">
                     <Image src="/portfolio/dp-ui-ux-icon.svg" alt="DP UI/UX Design" width={30} height={30} className="text-white" />
                   </div>
-                  <span className="text-lg font-bold">UI/UX Design</span>
+                  <span className="text-lg">UI/UX Design</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <div className="bg-[#6CE4C0] p-2 rounded-lg mr-4 w-fit">
                     <Image src="/portfolio/dp-branding-icon.svg" alt="Website Design" width={30} height={30} className="text-white" />
                   </div>
-                  <span className="text-lg font-bold">Branding</span>
+                  <span className="text-lg">Branding</span>
                 </li>
               </ul>
             </div>
             <div className="order-2 col-span-2 flex justify-center lg:justify-end w-full">
               <div className="relative w-full">
-                <LazyPortfolioVideo videoName="doggy-paradise" className="w-full" videoClassName="rounded-lg" quality="1080p" autoPlay muted loop />
+                <LazyPortfolioVideo
+                  videoName="doggy-paradise"
+                  className="w-full"
+                  videoClassName="rounded-lg"
+                  quality="1080p"
+                  autoPlay
+                  muted
+                  loop
+                  controls={false}
+                />
               </div>
             </div>
           </div>
@@ -244,9 +259,11 @@ export default function Portfolio() {
       </section>
 
       <section className="mt-10">
-        <CenteredFullWidthImage maxWidth={125} imageUrl="/sr-paint.png" altText="SR Paint" imageClasses="h-[20%]" containerClasses="mt-6 mb-10" />
+        <Link href="https://srpaint.ie/" target="_blank" rel="noopener noreferrer">
+          <CenteredFullWidthImage imageUrl="/sr-paint.png" maxWidth="max-w-[8rem] lg:max-w-3xs" />
+        </Link>
 
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="max-w-7xl mx-auto px-4 mt-10">
           <p className="text-center max-w-4xl mx-auto mb-15 text-lg text-gray-600">
             SR Paint is a professional house painting company dedicated to delivering high-quality interior and exterior painting services for both
             residential and commercial clients across Dublin, Bray, Wicklow, and surrounding areas. Focused on customer satisfaction and excellence,
@@ -254,7 +271,16 @@ export default function Portfolio() {
           </p>
 
           <div className="relative shadow-2xl">
-            <LazyPortfolioVideo videoName="sr-paint" className="w-full" videoClassName="rounded-lg" quality="1080p" autoPlay muted loop />
+            <LazyPortfolioVideo
+              videoName="sr-paint"
+              className="w-full"
+              videoClassName="rounded-lg"
+              quality="1080p"
+              autoPlay
+              muted
+              loop
+              controls={false}
+            />
           </div>
         </div>
 
@@ -392,34 +418,5 @@ export default function Portfolio() {
         <SimpleTemplates />
       </section>
     </main>
-  )
-}
-
-const CenteredFullWidthImage = ({
-  imageUrl = '/api/placeholder/1200/800',
-  altText = 'Centered image',
-  priority = true,
-  maxWidth = 1200,
-  containerClasses = '',
-  imageClasses = '',
-}) => {
-  return (
-    <section className={`w-full flex justify-center ${containerClasses}`}>
-      <div className="relative w-full max-w-screen-xl px-4 md:px-6 lg:px-8">
-        <div className="flex justify-center">
-          <div className={`relative w-full ${maxWidth ? `max-w-${maxWidth}` : ''}`}>
-            <Image
-              src={imageUrl}
-              alt={altText}
-              width={maxWidth}
-              height={800}
-              priority={priority}
-              className={`mx-auto h-auto ${imageClasses}`}
-              sizes={`(max-width: 768px) 100vw, (max-width: 1200px) 90vw, ${maxWidth}px`}
-            />
-          </div>
-        </div>
-      </div>
-    </section>
   )
 }

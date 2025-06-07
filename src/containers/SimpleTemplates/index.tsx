@@ -1,18 +1,17 @@
+import React from 'react'
 import { LazyPortfolioVideo } from '@/components/OptimisedVideo'
-import React, { useEffect, useRef } from 'react'
+import Link from 'next/link'
+import { ArrowUpRight } from 'lucide-react'
+
+interface Project {
+  title: string
+  description: string
+  src: string
+  href?: string
+}
 
 export default function SimpleTemplates() {
-  const videoRef = useRef<HTMLVideoElement | null>(null)
-
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.play().catch((error) => {
-        console.error('Video autoplay failed:', error)
-      })
-    }
-  }, [])
-
-  const projects = [
+  const projects: Project[] = [
     {
       title: 'Smarter Travel Award',
       description:
@@ -24,6 +23,7 @@ export default function SimpleTemplates() {
       description:
         'Designed a web page exploring how artificial intelligence, while aimed at helping the planet, could also harm it - such as through energy use and resource demands. The project was inspired by the ideas of James Bridle.  The layout was designed for easy reading and visual impact, encouraging critical thinking through design and content.',
       src: 'ai-and-environment',
+      href: 'https://www.behance.net/gallery/227603827/AI-The-Enviroment-landing-page',
     },
     {
       title: 'BookShelf',
@@ -36,6 +36,14 @@ export default function SimpleTemplates() {
       description:
         'Designed an educational web page to explain the impact of non-renewable vs. renewable energy. Focused on clear structure, engaging visuals, and easy navigation. Included sections on energy sources, practical tips, and ways to get involved in sustainability efforts in Ireland. The design aimed to be informative, user-friendly, and visually consistent.',
       src: 'ai-choices',
+      href: 'https://www.behance.net/gallery/227603551/Energy-Choices-Landing-Page',
+    },
+    {
+      title: 'Portfolio',
+      description:
+        'Designed a clean and modern landing page for a senior software engineer. The layout emphasises clarity and professionalism, featuring a bold hero section, structured content blocks for skills and experience, and a minimalist contact section. The design balances white space, typography, and color to reflect technical expertise and approachability.',
+      src: 'portfolio',
+      href: 'https://www.behance.net/gallery/227603317/Senior-Software-Engineer-Portfolio',
     },
   ]
 
@@ -49,12 +57,33 @@ export default function SimpleTemplates() {
               <div className="flex-1 lg:max-w-xl bg-gray-50 p-6 rounded-xl">
                 <h2 className={`text-3xl lg:text-4xl xl:text-3xl ${getTitleColor(index)} font-bold  mb-6 lg:mb-8`}>{project.title}</h2>
                 <p className="text-gray-600 text-base lg:text-md leading-relaxed">{project.description}</p>
+
+                {project.href && (
+                  <Link
+                    href={project.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800  font-medium text-sm  transition-colors duration-200 group mt-6"
+                  >
+                    <span className="underline decoration-1 underline-offset-2 hover:decoration-2">View Full Page</span>
+                    <ArrowUpRight size={16} className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </Link>
+                )}
               </div>
 
               {/* Phone Mockups */}
               <div className="flex-1 relative">
                 <div className="relative p-2">
-                  <LazyPortfolioVideo videoName={project.src} className="w-full" videoClassName="rounded-lg" quality="1080p" autoPlay muted loop />
+                  <LazyPortfolioVideo
+                    videoName={project.src}
+                    className="w-full"
+                    videoClassName="rounded-lg"
+                    quality="1080p"
+                    autoPlay
+                    muted
+                    loop
+                    controls={false}
+                  />
                 </div>
               </div>
             </div>
@@ -66,6 +95,10 @@ export default function SimpleTemplates() {
 }
 
 function getTitleColor(index: number) {
+  if (index === 1) {
+    return 'text-[#3BB993]'
+  }
+
   if (index === 2) {
     return 'text-black'
   }

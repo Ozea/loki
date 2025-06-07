@@ -14,11 +14,11 @@ if (!fs.existsSync(thumbnailsDir)) {
   fs.mkdirSync(thumbnailsDir, { recursive: true })
 }
 
-// Video quality configurations
+// Video quality configurations - now using target heights instead of fixed resolutions
 const qualities = [
-  { name: '480p', scale: '854:480', crf: 30, suffix: '-480p' },
-  { name: '720p', scale: '1280:720', crf: 28, suffix: '-720p' },
-  { name: '1080p', scale: '1920:1080', crf: 26, suffix: '-1080p' },
+  { name: '480p', height: 480, crf: 30, suffix: '-480p' },
+  { name: '720p', height: 720, crf: 28, suffix: '-720p' },
+  { name: '1080p', height: 1080, crf: 26, suffix: '-1080p' },
 ]
 
 console.log('🎬 Starting video optimization...\n')
@@ -56,18 +56,27 @@ videoFiles.forEach((file, index) => {
     const originalWidth = videoStream.width
     const originalHeight = videoStream.height
     const duration = parseFloat(info.format.duration)
+    const aspectRatio = originalWidth / originalHeight
 
     console.log(`   Dimensions: ${originalWidth}x${originalHeight}`)
+    console.log(`   Aspect ratio: ${aspectRatio.toFixed(2)}:1`)
     console.log(`   Duration: ${Math.floor(duration)}s`)
 
     // Generate optimized versions
     qualities.forEach((quality) => {
-      // Skip if target resolution is larger than original
-      const [targetWidth] = quality.scale.split(':').map(Number)
-      if (targetWidth > originalWidth) {
+      // Skip if target height is larger than original
+      if (quality.height > originalHeight) {
         console.log(`   ⏭️  Skipping ${quality.name} (larger than original)`)
         return
       }
+
+      // Calculate width maintaining aspect ratio
+      const targetWidth = Math.round(quality.height * aspectRatio)
+      // Ensure width is even (required for some codecs)
+      const evenWidth = targetWidth % 2 === 0 ? targetWidth : targetWidth - 1
+      const scaleFilter = `scale=${evenWidth}:${quality.height}`
+
+      console.log(`   📐 ${quality.name} target: ${evenWidth}x${quality.height}`)
 
       const outputMp4 = path.join(videosDir, `${basename}${quality.suffix}.mp4`)
       const outputWebm = path.join(videosDir, `${basename}${quality.suffix}.webm`)
@@ -76,7 +85,7 @@ videoFiles.forEach((file, index) => {
       if (!fs.existsSync(outputMp4)) {
         console.log(`   🔄 Creating ${quality.name} MP4...`)
         execSync(
-          `ffmpeg -i "${inputPath}" -vf scale=${quality.scale} -c:v libx264 -crf ${quality.crf} -preset medium -c:a aac -b:a 128k -movflags +faststart "${outputMp4}"`,
+          `ffmpeg -i "${inputPath}" -vf ${scaleFilter} -c:v libx264 -crf ${quality.crf} -preset medium -c:a aac -b:a 128k -movflags +faststart "${outputMp4}"`,
           { stdio: 'ignore' }
         )
         const newSize = fs.statSync(outputMp4).size
@@ -90,9 +99,7 @@ videoFiles.forEach((file, index) => {
         console.log(`   🔄 Creating ${quality.name} WebM...`)
         try {
           execSync(
-            `ffmpeg -i "${inputPath}" -vf scale=${quality.scale} -c:v libvpx-vp9 -crf ${
-              quality.crf + 2
-            } -b:v 0 -c:a libopus -b:a 128k "${outputWebm}"`,
+            `ffmpeg -i "${inputPath}" -vf ${scaleFilter} -c:v libvpx-vp9 -crf ${quality.crf + 2} -b:v 0 -c:a libopus -b:a 128k "${outputWebm}"`,
             { stdio: 'ignore' }
           )
           const newSize = fs.statSync(outputWebm).size
@@ -105,13 +112,20 @@ videoFiles.forEach((file, index) => {
       }
     })
 
-    // Generate thumbnail
+    // Generate thumbnail (maintaining aspect ratio)
     const thumbnailPath = path.join(thumbnailsDir, `${basename}.jpg`)
     if (!fs.existsSync(thumbnailPath)) {
       console.log(`   🔄 Creating thumbnail...`)
       const timeStamp = Math.min(5, duration / 4) // 5 seconds or 1/4 through video
-      execSync(`ffmpeg -i "${inputPath}" -ss ${timeStamp} -vframes 1 -vf scale=480:270 -q:v 5 "${thumbnailPath}"`, { stdio: 'ignore' })
-      console.log(`   ✅ Thumbnail created`)
+      // Calculate thumbnail dimensions maintaining aspect ratio
+      const thumbHeight = 270
+      const thumbWidth = Math.round(thumbHeight * aspectRatio)
+      const evenThumbWidth = thumbWidth % 2 === 0 ? thumbWidth : thumbWidth - 1
+
+      execSync(`ffmpeg -i "${inputPath}" -ss ${timeStamp} -vframes 1 -vf scale=${evenThumbWidth}:${thumbHeight} -q:v 5 "${thumbnailPath}"`, {
+        stdio: 'ignore',
+      })
+      console.log(`   ✅ Thumbnail created (${evenThumbWidth}x${thumbHeight})`)
     } else {
       console.log(`   ⏭️  Thumbnail already exists`)
     }

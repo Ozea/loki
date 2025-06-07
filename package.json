@@ -7,12 +7,14 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "generate-manifest": "node scripts/generate-video-manifest.js"
+    "generate-manifest": "node scripts/generate-video-manifest.js",
+    "optimize-videos": "node scripts/optimize-videos.js"
   },
   "dependencies": {
     "@tsparticles/react": "^3.0.0",
     "@tsparticles/slim": "^3.8.1",
     "framer-motion": "^12.12.1",
+    "lucide-react": "^0.513.0",
     "next": "15.3.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
