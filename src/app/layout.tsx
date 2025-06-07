@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} antialiased`}>
         <Header />
-        {children}
+        <div className="pt-10 md:pt-0 overflow-hidden">{children}</div>
         <Footer />
       </body>
     </html>
