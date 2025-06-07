@@ -53,7 +53,13 @@ export default function VisualDesign() {
   return (
     <main className="bg-white text-black pt-40">
       {/* Hero Section */}
-      <motion.section className="container mx-auto px-4 w-full mb-25" initial="hidden" animate="visible" variants={staggerContainer}>
+      <motion.section
+        className="container mx-auto px-4 w-full mb-25"
+        initial="hidden"
+        animate="visible"
+        viewport={{ once: true }}
+        variants={staggerContainer}
+      >
         <div className="gap-8">
           <div>
             <motion.h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-10" variants={fadeInUpVariants}>
@@ -76,22 +82,22 @@ export default function VisualDesign() {
         {/* Header Section */}
         <motion.div
           className="flex flex-col justify-center items-center text-center"
-          variants={headerVariants}
-          whileInView="visible"
           initial="hidden"
+          animate="visible"
           viewport={{ once: true }}
+          variants={headerVariants}
         >
           <motion.span
             className="gradient-background text-center block h-[5px] w-[70px] bg-black"
-            whileInView="visible"
             initial="hidden"
+            animate="visible"
             viewport={{ once: true }}
             variants={lineVariants}
           />
           <motion.h2
             className="text-3xl font-normal px-5 mb-5 text-gray-900 text-center mt-3"
-            whileInView="visible"
             initial="hidden"
+            animate="visible"
             viewport={{ once: true }}
             variants={headerVariants}
           >
@@ -112,20 +118,20 @@ export default function VisualDesign() {
         <motion.div
           className="flex flex-col justify-center items-center text-center"
           variants={headerVariants}
-          whileInView="visible"
+          animate="visible"
           initial="hidden"
           viewport={{ once: true }}
         >
           <motion.span
             className="gradient-background text-center block h-[5px] w-[70px] bg-black"
-            whileInView="visible"
+            animate="visible"
             initial="hidden"
             viewport={{ once: true }}
             variants={lineVariants}
           />
           <motion.h2
             className="text-3xl font-normal px-5 mb-5 text-gray-900 text-center mt-3"
-            whileInView="visible"
+            animate="visible"
             initial="hidden"
             viewport={{ once: true }}
             variants={headerVariants}
@@ -146,20 +152,20 @@ export default function VisualDesign() {
         <motion.div
           className="flex flex-col justify-center items-center text-center"
           variants={headerVariants}
-          whileInView="visible"
+          animate="visible"
           initial="hidden"
           viewport={{ once: true }}
         >
           <motion.span
             className="gradient-background text-center block h-[5px] w-[70px] bg-black"
-            whileInView="visible"
+            animate="visible"
             initial="hidden"
             viewport={{ once: true }}
             variants={lineVariants}
           />
           <motion.h2
             className="text-3xl font-normal px-5 mb-5 text-gray-900 text-center mt-3"
-            whileInView="visible"
+            animate="visible"
             initial="hidden"
             viewport={{ once: true }}
             variants={headerVariants}
