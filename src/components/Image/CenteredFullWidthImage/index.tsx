@@ -11,7 +11,7 @@ export const CenteredFullWidthImage = ({
   height = 800,
 }) => {
   return (
-    <section className={`w-full flex justify-center ${containerClasses}`}>
+    <div className={`w-full flex justify-center ${containerClasses}`}>
       <div className={`relative w-full ${maxWidth} px-4 sm:px-6 lg:px-8`}>
         <Image
           src={imageUrl}
@@ -23,6 +23,6 @@ export const CenteredFullWidthImage = ({
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1200px"
         />
       </div>
-    </section>
+    </div>
   )
 }
