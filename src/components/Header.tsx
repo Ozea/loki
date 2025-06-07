@@ -3,6 +3,8 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Menu, X } from 'lucide-react'
 import { GradientButton } from './Button/Gradient'
 
 export default function Header() {
@@ -10,6 +12,66 @@ export default function Header() {
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen)
+  }
+
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false)
+  }
+
+  // Animation variants for the mobile menu
+  const menuVariants = {
+    closed: {
+      opacity: 0,
+      height: 0,
+      transition: {
+        duration: 0.3,
+        ease: 'easeInOut',
+      },
+    },
+    open: {
+      opacity: 1,
+      height: 'auto',
+      transition: {
+        duration: 0.3,
+        ease: 'easeInOut',
+      },
+    },
+  }
+
+  // Animation variants for menu items
+  const itemVariants = {
+    closed: {
+      opacity: 0,
+      x: -20,
+      transition: {
+        duration: 0.2,
+      },
+    },
+    open: (i: number) => ({
+      opacity: 1,
+      x: 0,
+      transition: {
+        delay: i * 0.1,
+        duration: 0.3,
+        ease: 'easeOut',
+      },
+    }),
+  }
+
+  // Animation variants for hamburger menu icon
+  const hamburgerVariants = {
+    closed: {
+      rotate: 0,
+      transition: {
+        duration: 0.2,
+      },
+    },
+    open: {
+      rotate: 180,
+      transition: {
+        duration: 0.2,
+      },
+    },
   }
 
   return (
@@ -40,38 +102,82 @@ export default function Header() {
 
         {/* Mobile menu button */}
         <div className="md:hidden">
-          <button onClick={toggleMobileMenu} className="focus:outline-none">
-            {mobileMenuOpen ? (
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            ) : (
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            )}
-          </button>
+          <motion.button
+            onClick={toggleMobileMenu}
+            className="focus:outline-none p-2"
+            variants={hamburgerVariants}
+            animate={mobileMenuOpen ? 'open' : 'closed'}
+            whileTap={{ scale: 0.95 }}
+          >
+            <AnimatePresence mode="wait">
+              {mobileMenuOpen ? (
+                <motion.div
+                  key="close"
+                  initial={{ rotate: -45, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 45, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <X className="h-6 w-6 text-black" />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="hamburger"
+                  initial={{ rotate: 45, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: -45, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Menu className="h-6 w-6 text-black" />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.button>
         </div>
       </div>
 
       {/* Mobile Navigation Menu */}
-      {mobileMenuOpen && (
-        <div className="md:hidden bg-white shadow-lg">
-          <div className="px-4 pt-2 pb-4 space-y-4">
-            <Link href="/ui-ux" className="block text-black hover:text-blue-500 transition py-2">
-              UI/UX
-            </Link>
-            <Link href="/visual-design" className="block text-black hover:text-blue-500 transition py-2">
-              Visual Design
-            </Link>
-            <div className="pt-2">
-              <GradientButton linkProps={{ href: 'https://www.linkedin.com/in/dashmills0609/', target: '_blank', rel: 'noopener noreferrer' }}>
-                Get Started
-              </GradientButton>
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div className="md:hidden bg-white shadow-lg overflow-hidden" variants={menuVariants} initial="closed" animate="open" exit="closed">
+            <div className="px-4 pt-2 pb-4 space-y-4">
+              <motion.div variants={itemVariants} initial="closed" animate="open" custom={0} whileHover={{ x: 5 }} whileTap={{ scale: 0.98 }}>
+                <Link
+                  href="/ui-ux"
+                  className="block text-black hover:text-blue-500 transition py-2 border-b border-gray-100"
+                  onClick={closeMobileMenu}
+                >
+                  UI/UX
+                </Link>
+              </motion.div>
+
+              <motion.div variants={itemVariants} initial="closed" animate="open" custom={1} whileHover={{ x: 5 }} whileTap={{ scale: 0.98 }}>
+                <Link
+                  href="/visual-design"
+                  className="block text-black hover:text-blue-500 transition py-2 border-b border-gray-100"
+                  onClick={closeMobileMenu}
+                >
+                  Visual Design
+                </Link>
+              </motion.div>
+
+              <motion.div
+                className="pt-2"
+                variants={itemVariants}
+                initial="closed"
+                animate="open"
+                custom={2}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <GradientButton linkProps={{ href: 'https://www.linkedin.com/in/dashmills0609/', target: '_blank', rel: 'noopener noreferrer' }}>
+                  Get Started
+                </GradientButton>
+              </motion.div>
             </div>
-          </div>
-        </div>
-      )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   )
 }

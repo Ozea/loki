@@ -51,10 +51,10 @@ const lineVariants = {
 
 export default function VisualDesign() {
   return (
-    <main className="bg-white text-black pt-40">
+    <main className="bg-white text-black pt-15 md:pt-40">
       {/* Hero Section */}
       <motion.section
-        className="container mx-auto px-4 w-full mb-25"
+        className="container mx-auto px-4 w-full mb-20 md:mb-25"
         initial="hidden"
         animate="visible"
         viewport={{ once: true }}
