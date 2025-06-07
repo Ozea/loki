@@ -453,7 +453,7 @@ export default function Portfolio() {
       >
         <motion.div variants={scaleInVariants}>
           <Link href="https://srpaint.ie/" target="_blank" rel="noopener noreferrer">
-            <CenteredFullWidthImage imageUrl="/sr-paint.png" maxWidth="max-w-[8rem] lg:max-w-3xs" />
+            <CenteredFullWidthImage imageUrl="/logos/sr-paint.png" maxWidth="max-w-[8rem] lg:max-w-3xs" />
           </Link>
         </motion.div>
 
