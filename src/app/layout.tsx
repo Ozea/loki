@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { GoogleAnalytics } from '@next/third-parties/google'
 import { Inter } from 'next/font/google'
 import Header from '@/components/Header'
 import Footer from '@/containers/Footer'
@@ -26,6 +27,8 @@ export default function RootLayout({
         <div className="pt-10 md:pt-0 overflow-hidden">{children}</div>
         <Footer />
       </body>
+
+      <GoogleAnalytics gaId="G-R92GYW6HRW" />
     </html>
   )
 }

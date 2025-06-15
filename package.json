@@ -11,6 +11,7 @@
     "optimize-videos": "node scripts/optimize-videos.js"
   },
   "dependencies": {
+    "@next/third-parties": "^15.3.3",
     "@tsparticles/react": "^3.0.0",
     "@tsparticles/slim": "^3.8.1",
     "framer-motion": "^12.12.1",
