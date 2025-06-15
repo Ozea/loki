@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "generate-manifest": "node scripts/generate-video-manifest.js",
-    "optimize-videos": "node scripts/optimize-videos.js"
+    "optimize-videos": "node scripts/optimize-videos.js",
+    "postbuild": "next-sitemap"
   },
   "dependencies": {
     "@next/third-parties": "^15.3.3",
@@ -17,6 +18,7 @@
     "framer-motion": "^12.12.1",
     "lucide-react": "^0.513.0",
     "next": "15.3.2",
+    "next-sitemap": "^4.2.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-intersection-observer": "^9.16.0",
