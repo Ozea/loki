@@ -87,8 +87,7 @@ export default function Footer() {
         <div className="pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-600 text-sm mb-4 md:mb-0">© 2025 LOKI. All rights reserved.</p>
 
-          <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
-            {/* Policy Links */}
+          {/* <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
             <div className="flex flex-wrap justify-center gap-4 md:gap-8 mb-4 md:mb-0">
               <a href="#" className="text-gray-600 hover:text-gray-900 text-sm">
                 Privacy Policy
@@ -100,15 +99,15 @@ export default function Footer() {
                 Cookie Policy
               </a>
             </div>
-          </div>
+          </div> */}
 
           {/* Social Icons */}
           <div className="flex items-center gap-4">
-            <a href="#" aria-label="Instagram" className="text-gray-600 hover:text-gray-900">
-              <Image src="/instagram.svg" alt="Instagram" width={25} height={25} className="text-white" />
+            <a href="https://www.linkedin.com/in/dashmills0609/" aria-label="LinkedIn" className="text-gray-600 hover:text-gray-900">
+              <Image src="/linkedin.svg" alt="LinkedIn" width={25} height={25} className="text-white" />
             </a>
-            <a href="#" aria-label="Email" className="text-gray-600 hover:text-gray-900">
-              <Image src="/email.svg" alt="Email" width={25} height={25} className="text-white" />
+            <a href="mailto:iva.dariya02@gmail.com" aria-label="Gmail" className="text-gray-600 hover:text-gray-900">
+              <Image src="/email.svg" alt="Gmail" width={25} height={25} className="text-white" />
             </a>
           </div>
         </div>
