@@ -6,6 +6,7 @@ import SimpleTemplates from '@/containers/SimpleTemplates'
 import { LazyPortfolioVideo } from '@/components/OptimisedVideo'
 import Link from 'next/link'
 import { CenteredFullWidthImage } from '@/components/Image/CenteredFullWidthImage'
+import { uiUxProjects, webDesignProjects } from './projects'
 
 const headerVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -535,6 +536,39 @@ export default function UiUx() {
         </motion.div>
       </motion.section>
 
+      {/* UI/UX Projects Section */}
+      <motion.section className="min-h-screen mt-10" whileInView="visible" initial="hidden" viewport={{ once: true }} variants={staggerContainer}>
+        {/* Header Section */}
+        <motion.div
+          className="flex flex-col justify-center items-center text-center"
+          variants={headerVariants}
+          whileInView="visible"
+          initial="hidden"
+          viewport={{ once: true }}
+        >
+          <motion.span
+            className="gradient-background text-center block h-[5px] w-[70px] bg-black"
+            whileInView="visible"
+            initial="hidden"
+            viewport={{ once: true }}
+            variants={lineVariants}
+          />
+          <motion.h2
+            className="text-3xl px-5 mb-5 text-gray-900 text-center mt-3"
+            whileInView="visible"
+            initial="hidden"
+            viewport={{ once: true }}
+            variants={headerVariants}
+          >
+            UI/UX <span className="text-gradient font-bold">Projects</span>
+          </motion.h2>
+        </motion.div>
+
+        <motion.div variants={fadeInUpVariants}>
+          <SimpleTemplates projects={uiUxProjects} />
+        </motion.div>
+      </motion.section>
+
       {/* Simple Templates Section */}
       <motion.section className="min-h-screen mt-10" whileInView="visible" initial="hidden" viewport={{ once: true }} variants={staggerContainer}>
         {/* Header Section */}
@@ -559,12 +593,12 @@ export default function UiUx() {
             viewport={{ once: true }}
             variants={headerVariants}
           >
-            Simple <span className="text-gradient font-bold">Templates</span>
+            Web Design <span className="text-gradient font-bold">Samples</span>
           </motion.h2>
         </motion.div>
 
         <motion.div variants={fadeInUpVariants}>
-          <SimpleTemplates />
+          <SimpleTemplates projects={webDesignProjects} />
         </motion.div>
       </motion.section>
     </main>
